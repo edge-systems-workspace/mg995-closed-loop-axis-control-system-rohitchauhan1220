@@ -19,16 +19,10 @@ int echopin=10;
 int trigpin=9;
 
 void setup() {
-
-    // TODO 4:
-    // Initialize Serial communication (9600 baud)
-
-    // TODO 5:
-    // Attach servo to PWM pin
-
-    // TODO 6:
-    // Print system initialization message
-}
+    pinMode(trigpin,OUTPUT);
+    pinMode(echopin,INPUT);
+    Serial.begin(9600);
+    myservo.attach(3);
 
 void loop() {
 
