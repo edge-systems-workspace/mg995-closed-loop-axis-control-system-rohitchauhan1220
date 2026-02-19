@@ -3,7 +3,7 @@
  * @file main.cpp
  * @brief MG995 Closed-Loop Axis Control System
  * @author Rohit Chauhan
- * @date YYYY-MM-DD
+ * @date 2026-01-12
  *
  * @details
  * This program implements PWM-based control of MG995 servo motor.
