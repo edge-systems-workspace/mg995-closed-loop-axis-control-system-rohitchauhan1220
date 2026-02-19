@@ -15,12 +15,8 @@
 
 
 Servo myservo;
-
-// TODO 2: Define PWM pin (Use pin 9)
-// const int SERVO_PIN = ?;
-
-// TODO 3: Create variable to store servo angle
-// int targetAngle = 0;
+int echopin=10;
+int trigpin=9;
 
 void setup() {
 
