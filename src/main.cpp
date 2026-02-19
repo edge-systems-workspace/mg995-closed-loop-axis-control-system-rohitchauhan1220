@@ -39,4 +39,22 @@ void loop() {
 
     // TODO 10:
     // Print confirmation message after movement
+    digitalWrite(trigpin,LOW);
+    delayMicroseconds(2);
+    digitalWrite(trigpin,HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigpin,0);
+    long duration=pulseIn(echopin,1);
+    long distance=(duration*0.034)/2;
+    if(distance<15){
+        myservo.write(90);
+    }
+    else{
+        myservo.write(0);
+
+    }
+    Serial.print("Distance");
+    Serial.print(distance);
+    Serial.println("cm");
+    delay(500);
 }
