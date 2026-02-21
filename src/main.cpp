@@ -25,19 +25,7 @@ void setup() {
 }
 
 void loop() {
-    // TODO 7:
-    // Check if Serial data is available
 
-    // TODO 8:
-    // Read integer angle input from Serial
-
-    // TODO 9:
-    // Validate angle range (0–180)
-    // If valid → move servo
-    // If invalid → print error message
-
-    // TODO 10:
-    // Print confirmation message after movement
 
     digitalWrite(trigpin, LOW);
     delayMicroseconds(2);
