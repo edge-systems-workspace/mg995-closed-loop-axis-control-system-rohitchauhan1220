@@ -1,9 +1,8 @@
-
 /**
- * @file main.cpp
+* @file main.cpp
  * @brief MG995 Closed-Loop Axis Control System
  * @author Rohit Chauhan
- * @date 2026-01-12
+ * @date 2026-02-12
  *
  * @details
  * This program implements PWM-based control of MG995 servo motor.
@@ -11,38 +10,51 @@
  * the servo after validating input range (0–180 degrees).
  */
 
+#include <Arduino.h>
 #include <Servo.h>
 
-
 Servo myservo;
-int echopin=10;
-int trigpin=9;
+int echopin = 10;
+int trigpin = 9;
 
 void setup() {
-    pinMode(trigpin,OUTPUT);
-    pinMode(echopin,INPUT);
+    pinMode(trigpin, OUTPUT);
+    pinMode(echopin, INPUT);
     Serial.begin(9600);
     myservo.attach(3);
+}
 
 void loop() {
+    // TODO 7:
+    // Check if Serial data is available
 
+    // TODO 8:
+    // Read integer angle input from Serial
 
-    digitalWrite(trigpin,LOW);
+    // TODO 9:
+    // Validate angle range (0–180)
+    // If valid → move servo
+    // If invalid → print error message
+
+    // TODO 10:
+    // Print confirmation message after movement
+
+    digitalWrite(trigpin, LOW);
     delayMicroseconds(2);
-    digitalWrite(trigpin,HIGH);
+    digitalWrite(trigpin, HIGH);
     delayMicroseconds(10);
-    digitalWrite(trigpin,0);
-    long duration=pulseIn(echopin,1);
-    long distance=(duration*0.034)/2;
-    if(distance<15){
-        myservo.write(90);
-    }
-    else{
-        myservo.write(0);
+    digitalWrite(trigpin, LOW);
+    long duration = pulseIn(echopin, HIGH);
+    long distance = (duration * 0.034) / 2;
 
+    if (distance < 15) {
+        myservo.write(90);
+    } else {
+        myservo.write(0);
     }
-    Serial.print("Distance");
+
+    Serial.print("Distance: ");
     Serial.print(distance);
-    Serial.println("cm");
+    Serial.println(" cm");
     delay(500);
 }
